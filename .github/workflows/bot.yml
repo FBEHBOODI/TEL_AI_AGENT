@@ -25,5 +25,5 @@ jobs:
       - name: Run bot
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GOROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: python bot.py
