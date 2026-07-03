@@ -1,3 +1,5 @@
+
+
 import os
 import re
 import logging
@@ -12,13 +14,15 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
-TELEGRAM_TOKEN = re.sub(r'[^\x20-\x7E]', '' ,TELEGRAM_TOKEN).strip()
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
 
 if not TELEGRAM_TOKEN:
     raise ValueError("TELEGRAM_TOKEN پیدا نشد!")
 if not GROQ_API_KEY:
     raise ValueError("GROQ_API_KEY پیدا نشد!")
+
+# پاکسازی کاراکترهای نامرئی از توکن
+TELEGRAM_TOKEN = re.sub(r'[^\x20-\x7E]', '', TELEGRAM_TOKEN).strip()
 
 client = Groq(api_key=GROQ_API_KEY)
 
@@ -58,4 +62,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
