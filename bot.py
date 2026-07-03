@@ -1,5 +1,3 @@
-
-
 import os
 import re
 import logging
@@ -23,6 +21,7 @@ if not GROQ_API_KEY:
 
 # پاکسازی کاراکترهای نامرئی از توکن
 TELEGRAM_TOKEN = re.sub(r'[^\x20-\x7E]', '', TELEGRAM_TOKEN).strip()
+GROQ_API_KEY = re.sub(r'[^\x20-\x7E]', '', GROQ_API_KEY).strip()
 
 client = Groq(api_key=GROQ_API_KEY)
 
