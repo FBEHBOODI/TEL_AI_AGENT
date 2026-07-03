@@ -1,4 +1,5 @@
 import os
+import re
 import logging
 from groq import Groq
 from telegram import Update
@@ -11,6 +12,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
+TOKEN = re.sub(r'[^\x20-\x7E]', '' ,TOKEN).strip()
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
 
 if not TELEGRAM_TOKEN:
