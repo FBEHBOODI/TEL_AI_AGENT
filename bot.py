@@ -42,7 +42,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_histories[user_id].append({"role": "user", "content": user_message})
     try:
         response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="openai/gpt-oss-20b",
             messages=chat_histories[user_id],
         )
         reply = response.choices[0].message.content
